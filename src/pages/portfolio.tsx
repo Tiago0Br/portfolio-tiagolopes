@@ -7,7 +7,7 @@ const roboto = Roboto({
     weight: '500'
 })
 
-export default function NotFound() {
+export default function Portfolio() {
     return (
         <>
             <Head>
@@ -18,11 +18,11 @@ export default function NotFound() {
                 gap-8 md:gap-4 px-6 md:px-32'
             >
                 <h1 className='text-5xl md:text-7xl font-bold'>
-                    404
+                    Portfólio
                 </h1>
                 <p className='flex flex-col gap-8 md:gap-4 md:text-xl'>
                     <span>
-                        Ops, a página buscada não foi encontrada D:
+                        Página em desenvolvimento ...
                     </span>
                     <span>
                         Clique no botão abaixo para ser redirecionado para a página inicial

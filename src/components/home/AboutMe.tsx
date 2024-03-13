@@ -19,9 +19,9 @@ export function AboutMe() {
             >
                 <h1 className='text-3xl sm:text-7xl xl:leading-[5rem]'>
                     Prazer, sou&nbsp;
-                    <span className='font-bold'>
+                    <strong className='font-bold'>
                         Tiago Lopes
-                    </span>
+                    </strong>
                 </h1>
                 <div className='mb-12'>
                     <h2 className={`${roboto.className} mb-12`}>
