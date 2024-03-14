@@ -16,7 +16,7 @@ export function Header() {
             }
         >
             <Link href='/'>
-                <Image src='/favicon.png' alt='Logo da página' width={55} height={55} />
+                <Image src='/favicon.svg' alt='Logo da página' width={55} height={55} />
             </Link>
             <nav className='hidden md:flex items-center gap-10 text-sm'>
                 <Link href='/'>Sobre mim</Link>

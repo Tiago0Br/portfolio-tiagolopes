@@ -11,7 +11,7 @@ export default function Portfolio() {
     return (
         <>
             <Head>
-                <title>404 | Tiago</title>
+                <title>Portfólio | Tiago</title>
             </Head>
             <div 
                 className='flex flex-col items-center text-center mt-12 md:mt-24 

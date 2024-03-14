@@ -8,7 +8,7 @@ export function Menu() {
             <div>
                 <div>
                     <Link href='/'>
-                        <Image src='favicon.png' alt='Ícone' width={55} height={55} />
+                        <Image src='favicon.svg' alt='Ícone' width={55} height={55} />
                     </Link>
                     <button>
                         <MenuCloseIcon />
