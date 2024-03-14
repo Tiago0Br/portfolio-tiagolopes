@@ -1,6 +1,9 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 import { Roboto } from 'next/font/google'
+import { useCallback, useState } from 'react'
+import { MenuIcon } from '@/components/icons/MenuIcon'
+import { Menu } from './Menu'
 
 const roboto = Roboto({
     subsets: ['latin'],
@@ -8,6 +11,16 @@ const roboto = Roboto({
 })
 
 export function Header() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const openMenu = () => {
+        setIsMenuOpen(true)
+    }
+
+    const closeMenu = useCallback(() => {
+        setIsMenuOpen(false)
+    }, [])
+
     return (
         <header 
             className={
@@ -18,11 +31,15 @@ export function Header() {
             <Link href='/'>
                 <Image src='/favicon.svg' alt='Logo da página' width={55} height={55} />
             </Link>
+            <button className='p-1 md:hidden' onClick={openMenu}>
+                <MenuIcon className='fill-white w-10 h-10' />
+            </button>
             <nav className='hidden md:flex items-center gap-10 text-sm'>
                 <Link href='/'>Sobre mim</Link>
                 <Link href='/portfolio'>Portfólio</Link>
                 <Link href='/contatos'>Entre em contato</Link>
             </nav>
+            <Menu isVisible={isMenuOpen} onClose={closeMenu} />
         </header>
     )
 }

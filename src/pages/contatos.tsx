@@ -1,5 +1,6 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import { CopyButton } from '@/components/commons/CopyButton'
+import Head from 'next/head'
+import Link from 'next/link'
 
 export default function Contatos() {
     return (
@@ -23,6 +24,7 @@ export default function Contatos() {
                             >
                                 tiagoltavares2002@gmail.com
                             </Link>
+                            <CopyButton textToCopy='tiagoltavares2002@gmail.com' />
                         </div>
                     </li>
                     <li>
@@ -36,6 +38,7 @@ export default function Contatos() {
                             >
                                 https://www.linkedin.com/in/tiago-lopes-7ab0b71a4
                             </Link>
+                            <CopyButton textToCopy='https://www.linkedin.com/in/tiago-lopes-7ab0b71a4' />
                         </div>
                     </li>
                     <li>
@@ -49,6 +52,7 @@ export default function Contatos() {
                             >
                                 https://github.com/Tiago0Br
                             </Link>
+                            <CopyButton textToCopy='https://github.com/Tiago0Br' />
                         </div>
                     </li>
                 </ul>
