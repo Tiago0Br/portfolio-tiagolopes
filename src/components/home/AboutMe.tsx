@@ -64,7 +64,6 @@ export function AboutMe({ aboutMe }: AboutMeProps) {
                     alt={profile.image.alt}
                     width={400}
                     height={400}
-                    unoptimized
                 />
                 <p
                     className='p-4 w-fit text-base leading-tight bg-t-blue-500 rounded-xl

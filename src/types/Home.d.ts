@@ -11,7 +11,8 @@ export interface Project {
 
 export interface Home {
     aboutMe: AboutMe
-    projects: Project[]
+    projects: Project[],
+    contacts: Contact[]
 }
 
 export interface AboutMe {
@@ -35,4 +36,10 @@ export interface Tech {
 export interface Profile {
     image: Image
     role: string
+}
+
+export interface Contact {
+    name: string
+    link: string
+    isEmail?: boolean
 }

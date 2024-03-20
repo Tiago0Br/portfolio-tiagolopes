@@ -1,8 +1,14 @@
 import { CopyButton } from '@/components/commons/CopyButton'
+import { Contact, Home } from '@/types/Home'
 import Head from 'next/head'
 import Link from 'next/link'
+import 'dotenv/config'
 
-export default function Contatos() {
+interface ContactsProps {
+    contacts: Contact[]
+}
+
+export default function Contacts({ contacts }: ContactsProps) {
     return (
         <>
             <Head>
@@ -13,50 +19,43 @@ export default function Contatos() {
                     Contatos
                 </h1>
                 <ul className='table mx-auto space-y-6 md:space-y-8'>
-                    <li className='md:text-xl'>
-                        <span className='font-bold'>
-                            E-mail
-                        </span>
-                        <div className='flex gap-1 md:gap-3 items-center'>
-                            <Link 
-                                href='mailto:tiagoltavares2002@gmail.com'
-                                className='text-sm md:text-lg text-slate-300 underline truncate'
-                            >
-                                tiagoltavares2002@gmail.com
-                            </Link>
-                            <CopyButton textToCopy='tiagoltavares2002@gmail.com' />
-                        </div>
-                    </li>
-                    <li>
-                        <span className='font-bold'>
-                            LinkedIn
-                        </span>
-                        <div className='flex gap-1 md:gap-3 items-center'>
-                            <Link
-                                href='https://www.linkedin.com/in/tiago-lopes-7ab0b71a4' target='_blank'
-                                className='text-sm md:text-lg text-slate-300 underline truncate'
-                            >
-                                https://www.linkedin.com/in/tiago-lopes-7ab0b71a4
-                            </Link>
-                            <CopyButton textToCopy='https://www.linkedin.com/in/tiago-lopes-7ab0b71a4' />
-                        </div>
-                    </li>
-                    <li>
-                        <span className='font-bold'>
-                            Github
-                        </span>
-                        <div className='flex gap-1 md:gap-3 items-center'>
-                            <Link
-                                href='https://github.com/Tiago0Br' target='_blank'
-                                className='text-sm md:text-lg text-slate-300 underline truncate'
-                            >
-                                https://github.com/Tiago0Br
-                            </Link>
-                            <CopyButton textToCopy='https://github.com/Tiago0Br' />
-                        </div>
-                    </li>
+                    {contacts.map(({ name, link, isEmail }, index) => (
+                        <li className='md:text-xl' key={name + index}>
+                            <span className='font-bold'>
+                                {name}
+                            </span>
+                            <div className='flex gap-1 md:gap-3 items-center'>
+                                <Link
+                                    href={isEmail ? `mailto:${link}` : link}
+                                    className='text-sm md:text-lg text-slate-300 
+                                    underline truncate'
+                                    target='_blank'
+                                >
+                                    {link}
+                                </Link>
+                                <CopyButton textToCopy={link} />
+                            </div>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </>
     )
+}
+
+async function loadContacts() {
+    const res = await fetch(process.env.DATA_URL!)
+    const data = await res.json() as Home
+
+    return data.contacts
+}
+
+export const getServerSideProps = async () => {
+    const contacts = await loadContacts()
+
+    return {
+        props: {
+            contacts
+        }
+    }
 }
