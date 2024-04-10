@@ -1,5 +1,6 @@
 import { CopyButton } from '@/components/commons/CopyButton'
 import { Contact, Home } from '@/types/Home'
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import 'dotenv/config'
@@ -50,7 +51,7 @@ async function loadContacts() {
     return data.contacts
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps: GetStaticProps<ContactsProps> = async () => {
     const contacts = await loadContacts()
 
     return {
