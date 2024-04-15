@@ -4,6 +4,7 @@ import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import 'dotenv/config'
+import { Toaster } from 'sonner'
 
 interface ContactsProps {
     contacts: Contact[]
@@ -16,6 +17,7 @@ export default function Contacts({ contacts }: ContactsProps) {
                 <title>Sobre mim | Tiago</title>
             </Head>
             <div className='mt-12 md:mt-24 space-y-16 px-6 md:px-32'>
+                <Toaster richColors position='top-center' />
                 <h1 className='text-5xl md:text-7xl font-bold text-center'>
                     Contatos
                 </h1>
