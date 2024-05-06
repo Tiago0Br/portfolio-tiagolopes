@@ -1,23 +1,23 @@
-import { ReactNode } from 'react'
-import { Header } from './Header'
-import { JetBrains_Mono } from 'next/font/google'
+import { ReactNode } from "react";
+import { Header } from "./Header";
+import { JetBrains_Mono } from "next/font/google";
 
 interface LayoutProps {
-    children: ReactNode
+  children: ReactNode;
 }
 
 const jetbtainsMono = JetBrains_Mono({
-    subsets: ['latin'],
-    weight: '400'
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export function Layout({ children }: LayoutProps) {
-    return (
-        <>
-            <div className={jetbtainsMono.className}>
-                <Header />
-                {children}
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className={jetbtainsMono.className}>
+        <Header />
+        {children}
+      </div>
+    </>
+  );
 }

@@ -1,45 +1,45 @@
 export interface Image {
-    url: string
-    alt: string
+  url: string
+  alt: string
 }
 
 export interface Project {
-    slug: string
-    name: string
-    image: Image
+  slug: string
+  name: string
+  image: Image
 }
 
 export interface Home {
-    aboutMe: AboutMe
-    projects: Project[],
-    contacts: Contact[]
+  aboutMe: AboutMe
+  projects: Project[]
+  contacts: Contact[]
 }
 
 export interface AboutMe {
-    title: Title
-    description: string
-    profile: Profile
-    techs: Tech[]
+  title: Title
+  description: string
+  profile: Profile
+  techs: Tech[]
 }
 
 export interface Title {
-    default: string
-    bold: string
+  default: string
+  bold: string
 }
 
 export interface Tech {
-    tech: string
-    color: string
-    bgcolor: string
+  tech: string
+  color: string
+  bgcolor: string
 }
 
 export interface Profile {
-    image: Image
-    role: string
+  image: Image
+  role: string
 }
 
 export interface Contact {
-    name: string
-    link: string
-    isEmail?: boolean
+  name: string
+  link: string
+  isEmail?: boolean
 }

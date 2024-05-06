@@ -10,22 +10,21 @@ interface HomeProps {
 }
 
 export default function Home({ home }: HomeProps) {
-
   const { projects } = home
 
   return (
     <>
       <Head>
         <title>Sobre mim | Tiago</title>
-        <meta 
-          name='description' 
-          content='Sou um analista de testes/QA e futuro desenvolvedor web apaixonado por programação,
-          games, tecnologia e filmes de super heróis' 
+        <meta
+          name="description"
+          content="Sou um analista de testes/QA e futuro desenvolvedor web apaixonado por programação,
+          games, tecnologia e filmes de super heróis"
         />
       </Head>
-      <div className='py-12 px-6 md:px-32 space-y-10 md:space-y-18'>
+      <div className="py-12 px-6 md:px-32 space-y-10 md:space-y-18">
         <AboutMe aboutMe={home.aboutMe} />
-        <Projects projects={projects}/>
+        <Projects projects={projects} />
       </div>
     </>
   )
@@ -34,7 +33,7 @@ export default function Home({ home }: HomeProps) {
 async function loadHome() {
   const res = await fetch(process.env.DATA_URL!)
 
-  const home = await res.json() as Home
+  const home = (await res.json()) as Home
 
   return home
 }
@@ -43,6 +42,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const home = await loadHome()
 
   return {
-    props: { home }
+    props: { home },
   }
 }
