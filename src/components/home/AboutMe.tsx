@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Roboto } from 'next/font/google'
 import { AboutMe } from '@/types/Home'
+import { DownloadIcon } from '../icons/DownloadIcon'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -28,14 +29,16 @@ export function AboutMe({ aboutMe }: AboutMeProps) {
         <div className="mb-12">
           <h2 className={`${roboto.className} mb-12`}>{description}</h2>
           <Link
-            href="/contatos"
-            className="p-3 bg-t-gray-500 w-fit text-xl rounded-lg transition-all hover:bg-opacity-80"
+            href="/curriculo.pdf"
+            target="_blank"
+            download="curriculo-tiago-lopes.pdf"
+            className="flex gap-1 p-3 bg-t-gray-500 w-fit text-xl rounded-lg transition-all hover:bg-opacity-80"
           >
-            Converse comigo
+            Currículo <DownloadIcon className="w-4 fill-white" />
           </Link>
         </div>
         <ul className="flex flex-wrap justify-center xl:grid xl:grid-cols-2 xl:w-fit gap-3 text-xl">
-          {techs.map(({ tech, color, bgcolor }, index) => (
+          {techs.slice(0, 5).map(({ tech, color, bgcolor }, index) => (
             <li
               key={tech + index}
               style={{ backgroundColor: bgcolor, color: color }}
