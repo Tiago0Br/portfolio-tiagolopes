@@ -9,7 +9,7 @@ interface HomeProps {
   home: Home
 }
 
-export default function Home({ home }: HomeProps) {
+export default function HomePage({ home }: HomeProps) {
   const { projects } = home
 
   return (

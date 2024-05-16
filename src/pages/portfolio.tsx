@@ -1,4 +1,4 @@
-import { DownloadIcon } from '@/components/icons/DownloadIcon'
+import { TechItem } from '@/components/commons/TechItem'
 import { Home } from '@/types/Home'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
@@ -21,21 +21,20 @@ export default function Portfolio({ data }: PortfolioProps) {
           <h2 className="text-2xl md:text-3xl">Skills</h2>
           <ul className="flex flex-wrap justify-center xl:w-fit gap-3 text-xl">
             {data.aboutMe.techs.map(({ tech, color, bgcolor }, index) => (
-              <li
+              <TechItem
                 key={tech + index}
-                style={{ backgroundColor: bgcolor, color: color }}
-                className="w-fit p-2 rounded-md"
-              >
-                {tech}
-              </li>
+                name={tech}
+                color={color}
+                bgcolor={bgcolor}
+              />
             ))}
           </ul>
 
           <h2 className="text-2xl md:text-3xl">Projetos</h2>
 
           <ul className="flex flex-wrap gap-10 md:gap-20 justify-center xl:justify-start">
-            {data.projects.map(({ name, slug, image }, index) => (
-              <Link href={slug} key={name + index} target="_blank">
+            {data.projects.map(({ id, name, image }, index) => (
+              <Link href={`/projects?id=${id}`} key={name + index}>
                 <li className="text-md relative">
                   <Image
                     src={image.url}

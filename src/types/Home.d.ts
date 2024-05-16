@@ -4,9 +4,12 @@ export interface Image {
 }
 
 export interface Project {
-  slug: string
+  id: string
   name: string
+  description: string
   image: Image
+  techs: Tech[]
+  links: Link[]
 }
 
 export interface Home {
@@ -42,4 +45,9 @@ export interface Contact {
   name: string
   link: string
   isEmail?: boolean
+}
+
+export interface Link {
+  title: string
+  url: string
 }

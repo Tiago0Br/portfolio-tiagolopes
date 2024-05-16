@@ -12,8 +12,8 @@ export function Projects({ projects }: ProjectProps) {
       <h2 className="text-2xl md:text-3xl">Projetos recentes</h2>
 
       <ul className="flex flex-wrap gap-10 md:gap-20 justify-center xl:justify-start">
-        {projects.slice(0, 4).map(({ name, slug, image }, index) => (
-          <Link href={slug} key={name + index} target="_blank">
+        {projects.slice(0, 4).map(({ id, name, image }, index) => (
+          <Link href={`/projects?id=${id}`} key={id}>
             <li className="text-md relative">
               <Image
                 src={image.url}

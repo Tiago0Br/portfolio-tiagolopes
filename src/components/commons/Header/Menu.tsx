@@ -10,10 +10,9 @@ interface MenuProps {
 export function Menu({ isVisible, onClose }: MenuProps) {
   return (
     <div
-      className={`${
-        isVisible ? 'flex' : 'hidden'
-      } fixed inset-0 w-full h-full bg-black
-                bg-opacity-40 backdrop-blur-sm md:hidden`}
+      className={`
+        ${isVisible ? 'flex' : 'hidden'}
+        fixed inset-0 w-full h-full bg-black bg-opacity-40 backdrop-blur-sm md:hidden`}
       onClick={onClose}
     >
       <div
