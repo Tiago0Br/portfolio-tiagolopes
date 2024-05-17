@@ -7,6 +7,7 @@ import { useSearchParams } from 'next/navigation'
 import NotFound from './404'
 import Image from 'next/image'
 import { TechItem } from '@/components/commons/TechItem'
+import Link from 'next/link'
 
 interface ProjectProps {
   home: Home
@@ -29,13 +30,13 @@ export default function ProjectPage({ home }: ProjectProps) {
       </Head>
 
       <div className="flex flex-col items-center gap-7 mb-5">
-        <h1 className="text-xl sm:text-2xl md:text-3xl">{project.name}</h1>
+        <h1 className="text-md sm:text-2xl md:text-3xl">{project.name}</h1>
         <Image
           src={project.image.url}
           alt={project.image.alt}
           height={300}
           width={450}
-          className="object-cover h-[300px] w-[450px] md:h-[400px] md:w-[600px] rounded-2xl mb-4"
+          className="object-cover h-[200px] w-[320px] md:h-[400px] md:w-[600px] rounded-2xl mb-4"
           unoptimized
         />
         <div className="flex flex-col gap-5 items-center">
@@ -56,16 +57,17 @@ export default function ProjectPage({ home }: ProjectProps) {
           <h2 className="text-2xl md:text-3xl">Links</h2>
           <ul>
             {project.links.map(({ title, url }, index) => (
-              <li key={title + index}>
-                <span>{title}:</span>
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-t-blue-500"
-                >
-                  {url}
-                </a>
+              <li className="md:text-xl" key={title + index}>
+                <span className="font-bold">{title}</span>
+                <div className="flex gap-1 md:gap-3 items-center">
+                  <Link
+                    href={url}
+                    className="text-sm md:text-lg text-slate-300 underline truncate"
+                    target="_blank"
+                  >
+                    {url}
+                  </Link>
+                </div>
               </li>
             ))}
           </ul>
