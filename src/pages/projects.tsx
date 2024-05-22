@@ -30,7 +30,9 @@ export default function ProjectPage({ home }: ProjectProps) {
       </Head>
 
       <div className="flex flex-col items-center gap-7 mb-5">
-        <h1 className="text-md sm:text-2xl md:text-3xl">{project.name}</h1>
+        <h1 className="text-md text-center sm:text-2xl md:text-3xl">
+          {project.name}
+        </h1>
         <Image
           src={project.image.url}
           alt={project.image.alt}
@@ -55,14 +57,14 @@ export default function ProjectPage({ home }: ProjectProps) {
         <p className="text-justify mx-10 md:mx-20">{project.description}</p>
         <div className="flex flex-col gap-5 items-center">
           <h2 className="text-2xl md:text-3xl">Links</h2>
-          <ul>
+          <ul className="flex flex-col gap-3">
             {project.links.map(({ title, url }, index) => (
               <li className="md:text-xl" key={title + index}>
                 <span className="font-bold">{title}</span>
                 <div className="flex gap-1 md:gap-3 items-center">
                   <Link
                     href={url}
-                    className="text-sm md:text-lg text-slate-300 underline truncate"
+                    className="text-sm md:text-lg text-slate-300 underline truncate break-words max-w-[90vw]"
                     target="_blank"
                   >
                     {url}

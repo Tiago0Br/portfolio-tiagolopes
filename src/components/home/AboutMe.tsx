@@ -36,7 +36,7 @@ export function AboutMe({ aboutMe }: AboutMeProps) {
             className="flex gap-1 p-3 bg-t-gray-500 w-fit text-xl rounded-lg transition-all 
             hover:bg-opacity-80"
           >
-            Currículo <DownloadIcon className="w-4 fill-white" />
+            Veja meu currículo <DownloadIcon className="w-4 fill-white" />
           </Link>
         </div>
         <ul className="flex flex-wrap justify-center xl:grid xl:grid-cols-2 xl:w-fit gap-3 text-xl">

@@ -25,7 +25,7 @@ export function Projects({ projects }: ProjectProps) {
               />
               <span>{name}</span>
               <div
-                className="bg-t-blue-500 rounded-xl w-14 h-14 text-center flex justify-center 
+                className="hidden md:flex bg-t-blue-500 rounded-xl w-14 h-14 text-center justify-center 
                 items-center text-3xl absolute bottom-[1.25rem] -right-[1.25rem]"
               >
                 <span>{index + 1}</span>
