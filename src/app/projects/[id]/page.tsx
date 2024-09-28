@@ -1,23 +1,29 @@
-'use client'
-
 import { Home } from '@/types/Home'
-import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import { useSearchParams } from 'next/navigation'
-import NotFound from './404'
+import NotFound from '@/app/not-found'
 import Image from 'next/image'
 import { TechItem } from '@/components/commons/TechItem'
 import Link from 'next/link'
 
-interface ProjectProps {
-  home: Home
+interface ProjectPageProps {
+  params: {
+    id: string
+  }
 }
 
-export default function ProjectPage({ home }: ProjectProps) {
-  const searchParams = useSearchParams()
+export default async function ProjectPage({
+  params: { id },
+}: ProjectPageProps) {
+  async function loadHome() {
+    const res = await fetch(process.env.NEXT_PUBLIC_DATA_URL!)
 
-  const projectId = searchParams.get('id')
-  const project = home.projects.find((project) => project.id === projectId)
+    const home = (await res.json()) as Home
+
+    return home
+  }
+
+  const home = await loadHome()
+  const project = home.projects.find((project) => project.id === id)
 
   if (!project) {
     return <NotFound />
@@ -77,20 +83,4 @@ export default function ProjectPage({ home }: ProjectProps) {
       </div>
     </>
   )
-}
-
-async function loadHome() {
-  const res = await fetch(process.env.DATA_URL!)
-
-  const home = (await res.json()) as Home
-
-  return home
-}
-
-export const getStaticProps: GetStaticProps<ProjectProps> = async () => {
-  const home = await loadHome()
-
-  return {
-    props: { home },
-  }
 }

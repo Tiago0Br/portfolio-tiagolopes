@@ -1,15 +1,18 @@
 import { AboutMe } from '@/components/home/AboutMe'
 import { Projects } from '@/components/home/Projects'
 import { Home } from '@/types/Home'
-import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import 'dotenv/config'
 
-interface HomeProps {
-  home: Home
-}
+export default async function HomePage() {
+  async function loadHome() {
+    const res = await fetch(process.env.NEXT_PUBLIC_DATA_URL!)
 
-export default function HomePage({ home }: HomeProps) {
+    const home = (await res.json()) as Home
+
+    return home
+  }
+
+  const home = await loadHome()
   const { projects } = home
 
   return (
@@ -28,20 +31,4 @@ export default function HomePage({ home }: HomeProps) {
       </div>
     </>
   )
-}
-
-async function loadHome() {
-  const res = await fetch(process.env.DATA_URL!)
-
-  const home = (await res.json()) as Home
-
-  return home
-}
-
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const home = await loadHome()
-
-  return {
-    props: { home },
-  }
 }

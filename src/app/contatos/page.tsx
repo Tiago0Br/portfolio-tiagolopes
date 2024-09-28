@@ -1,16 +1,19 @@
-import { CopyButton } from '@/components/commons/CopyButton'
-import { Contact, Home } from '@/types/Home'
-import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import 'dotenv/config'
 import { Toaster } from 'sonner'
+import { CopyButton } from '@/components/commons/CopyButton'
+import { Home } from '@/types/Home'
 
-interface ContactsProps {
-  contacts: Contact[]
-}
+export default async function Contacts() {
+  async function loadContacts() {
+    const res = await fetch(process.env.NEXT_PUBLIC_DATA_URL!)
+    const data = (await res.json()) as Home
 
-export default function Contacts({ contacts }: ContactsProps) {
+    return data.contacts
+  }
+
+  const contacts = await loadContacts()
+
   return (
     <>
       <Head>
@@ -39,21 +42,4 @@ export default function Contacts({ contacts }: ContactsProps) {
       </div>
     </>
   )
-}
-
-async function loadContacts() {
-  const res = await fetch(process.env.DATA_URL!)
-  const data = (await res.json()) as Home
-
-  return data.contacts
-}
-
-export const getStaticProps: GetStaticProps<ContactsProps> = async () => {
-  const contacts = await loadContacts()
-
-  return {
-    props: {
-      contacts,
-    },
-  }
 }

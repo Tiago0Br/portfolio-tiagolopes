@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { Roboto } from 'next/font/google'
@@ -23,8 +25,7 @@ export function Header() {
 
   return (
     <header
-      className={`${roboto.className} bg-t-blue-900 text-sm flex py-3 px-5 
-                justify-between items-center sticky top-0 z-20`}
+      className={`${roboto.className} bg-t-blue-900 text-sm flex py-3 px-5 justify-between items-center sticky top-0 z-20`}
     >
       <Link href="/">
         <Image src="/favicon.svg" alt="Logo da página" width={55} height={55} />
