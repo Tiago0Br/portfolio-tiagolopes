@@ -1,15 +1,20 @@
 import { TechItem } from '@/components/commons/TechItem'
 import { Home } from '@/types/Home'
-import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 
-interface PortfolioProps {
-  data: Home
-}
+export default async function Portfolio() {
+  async function load() {
+    const res = await fetch(process.env.NEXT_PUBLIC_DATA_URL!)
 
-export default function Portfolio({ data }: PortfolioProps) {
+    const data = (await res.json()) as Home
+
+    return data
+  }
+
+  const data = await load()
+
   return (
     <>
       <Head>
@@ -34,7 +39,7 @@ export default function Portfolio({ data }: PortfolioProps) {
 
           <ul className="flex flex-wrap gap-10 md:gap-20 justify-center xl:justify-start">
             {data.projects.map(({ id, name, image }, index) => (
-              <Link href={`/projects?id=${id}`} key={name + index}>
+              <Link href={`/projects/${id}`} key={name + index}>
                 <li className="text-md relative">
                   <Image
                     src={image.url}
@@ -53,20 +58,4 @@ export default function Portfolio({ data }: PortfolioProps) {
       </div>
     </>
   )
-}
-
-async function load() {
-  const res = await fetch(process.env.DATA_URL!)
-
-  const data = (await res.json()) as Home
-
-  return data
-}
-
-export const getStaticProps: GetStaticProps<PortfolioProps> = async () => {
-  const data = await load()
-
-  return {
-    props: { data },
-  }
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import { CopyIcon } from '../icons/CopyIcon'
 import { toast } from 'sonner'
 

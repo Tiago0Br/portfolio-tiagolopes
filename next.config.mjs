@@ -7,16 +7,16 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'github.com',
         port: '',
-        pathname: '**'
+        pathname: '**',
       },
       {
         protocol: 'https',
         hostname: 'i.imgur.com',
         port: '',
-        pathname: '**'
-      }
-    ]
-  }
-};
+        pathname: '**',
+      },
+    ],
+  },
+}
 
-export default nextConfig;
+export default nextConfig

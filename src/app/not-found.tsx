@@ -23,8 +23,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className={`${roboto.className} p-4 bg-t-blue-500 rounded-xl text-black 
-          mt-5 md:mt-12 w-fit md:text-xl`}
+          className={`${roboto.className} p-4 bg-t-blue-500 rounded-xl text-black mt-5 md:mt-12 w-fit md:text-xl`}
         >
           Ir para a página inicial
         </Link>

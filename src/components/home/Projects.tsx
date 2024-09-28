@@ -13,7 +13,7 @@ export function Projects({ projects }: ProjectProps) {
 
       <ul className="flex flex-wrap gap-10 md:gap-20 justify-center xl:justify-start">
         {projects.slice(0, 4).map(({ id, name, image }, index) => (
-          <Link href={`/projects?id=${id}`} key={id}>
+          <Link href={`/projects/${id}`} key={id}>
             <li className="text-md relative">
               <Image
                 src={image.url}
