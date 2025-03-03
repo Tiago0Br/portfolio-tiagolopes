@@ -1,4 +1,4 @@
-import { Project } from '@/types/Home'
+import { Project } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -20,7 +20,8 @@ export function Projects({ projects }: ProjectProps) {
                 alt={image.alt}
                 width={450}
                 height={300}
-                className="object-cover rounded-2xl h-[18.75rem] mb-4"
+                className="object-cover rounded-2xl h-[18.75rem] mb-4 hover:h-[315px] hover:w-[473px] transition-all duration-300"
+                draggable={false}
                 unoptimized
               />
               <span>{name}</span>

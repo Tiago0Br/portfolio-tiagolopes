@@ -1,7 +1,7 @@
 'use client'
 
-import { CopyIcon } from '../icons/CopyIcon'
 import { toast } from 'sonner'
+import { Files } from 'lucide-react'
 
 interface CopyButtonProps {
   textToCopy: string
@@ -21,7 +21,9 @@ export function CopyButton({ textToCopy }: CopyButtonProps) {
           toast.success('Contato copiado!')
         }}
       >
-        <CopyIcon title="Clique aqui para copiar" className="fill-white" />
+        <span title="Copiar contato">
+          <Files size={20} />
+        </span>
       </button>
     </>
   )

@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { Toaster } from 'sonner'
-import { CopyButton } from '@/components/commons/CopyButton'
-import { Home } from '@/types/Home'
+import { CopyButton } from '@/components/commons/copy-button'
+import { Home } from '@/types'
 
 export default async function Contacts() {
   async function loadContacts() {

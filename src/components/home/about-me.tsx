@@ -1,9 +1,7 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { Roboto } from 'next/font/google'
-import { AboutMe as AboutMeInterface } from '@/types/Home'
-import { DownloadIcon } from '../icons/DownloadIcon'
-import { TechItem } from '../commons/TechItem'
+import { AboutMe as AboutMeInterface } from '@/types'
+import { TechItem } from '../commons/tech-item'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -29,24 +27,10 @@ export function AboutMe({ aboutMe }: AboutMeProps) {
         </h1>
         <div className="mb-12">
           <h2 className={`${roboto.className} mb-12`}>{description}</h2>
-          <Link
-            href="/curriculo-tiago-lopes.pdf"
-            target="_blank"
-            download="curriculo-tiago-lopes.pdf"
-            className="flex gap-1 p-3 bg-t-gray-500 w-fit text-xl rounded-lg transition-all 
-            hover:bg-opacity-80"
-          >
-            Veja meu currículo <DownloadIcon className="w-4 fill-white" />
-          </Link>
         </div>
         <ul className="flex flex-wrap justify-center xl:grid xl:grid-cols-2 xl:w-fit gap-3 text-xl">
-          {techs.slice(0, 5).map(({ tech, color, bgcolor }, index) => (
-            <TechItem
-              key={tech + index}
-              name={tech}
-              color={color}
-              bgcolor={bgcolor}
-            />
+          {techs.slice(0, 5).map(({ tech, color, bgcolor }) => (
+            <TechItem key={tech} name={tech} color={color} bgcolor={bgcolor} />
           ))}
         </ul>
       </div>
@@ -59,11 +43,7 @@ export function AboutMe({ aboutMe }: AboutMeProps) {
           height={400}
           draggable={false}
         />
-        <p
-          className="p-4 w-fit text-base leading-tight bg-t-blue-500 rounded-xl text-black 
-          absolute -bottom-[12px]"
-        >
-          {/* <span className='text-4xl'>2+</span> */}
+        <p className="p-4 w-fit text-base leading-tight bg-t-blue-500 rounded-xl text-black absolute -bottom-[12px]">
           {profile.role}
         </p>
       </div>

@@ -1,9 +1,9 @@
-import { Home } from '@/types/Home'
 import Head from 'next/head'
-import NotFound from '@/app/not-found'
 import Image from 'next/image'
-import { TechItem } from '@/components/commons/TechItem'
 import Link from 'next/link'
+import NotFound from '@/app/not-found'
+import { Home } from '@/types'
+import { TechItem } from '@/components/commons/tech-item'
 
 interface ProjectPageProps {
   params: {
@@ -45,14 +45,15 @@ export default async function ProjectPage({
           height={300}
           width={450}
           className="object-cover h-[200px] w-[320px] md:h-[400px] md:w-[600px] rounded-2xl mb-4"
+          draggable={false}
           unoptimized
         />
         <div className="flex flex-col gap-5 items-center">
           <h2 className="text-2xl md:text-3xl">Tecnologias utilizadas</h2>
           <ul className="flex flex-wrap justify-center gap-5">
-            {project.techs.map(({ tech, color, bgcolor }, index) => (
+            {project.techs.map(({ tech, color, bgcolor }) => (
               <TechItem
-                key={tech + index}
+                key={tech}
                 name={tech}
                 color={color}
                 bgcolor={bgcolor}
@@ -60,12 +61,12 @@ export default async function ProjectPage({
             ))}
           </ul>
         </div>
-        <p className="text-justify mx-10 md:mx-20">{project.description}</p>
+        <p className="text-justify mx-10 md:mx-32">{project.description}</p>
         <div className="flex flex-col gap-5 items-center">
           <h2 className="text-2xl md:text-3xl">Links</h2>
-          <ul className="flex flex-col gap-3">
-            {project.links.map(({ title, url }, index) => (
-              <li className="md:text-xl" key={title + index}>
+          <ul className="flex flex-col gap-3 md:flex-row md:gap-6">
+            {project.links.map(({ title, url }) => (
+              <li className="md:text-xl" key={title}>
                 <span className="font-bold">{title}</span>
                 <div className="flex gap-1 md:gap-3 items-center">
                   <Link

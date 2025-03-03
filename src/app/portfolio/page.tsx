@@ -1,8 +1,8 @@
-import { TechItem } from '@/components/commons/TechItem'
-import { Home } from '@/types/Home'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { TechItem } from '@/components/commons/tech-item'
+import { Home } from '@/types'
 
 export default async function Portfolio() {
   async function load() {
@@ -46,7 +46,8 @@ export default async function Portfolio() {
                     alt={image.alt}
                     width={450}
                     height={300}
-                    className="object-cover rounded-2xl h-[18.75rem] mb-4"
+                    className="object-cover rounded-2xl h-[18.75rem] mb-4 hover:h-[315px] hover:w-[473px] transition-all duration-300"
+                    draggable={false}
                     unoptimized
                   />
                   <span>{name}</span>

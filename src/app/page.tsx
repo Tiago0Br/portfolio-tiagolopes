@@ -1,6 +1,6 @@
-import { AboutMe } from '@/components/home/AboutMe'
-import { Projects } from '@/components/home/Projects'
-import { Home } from '@/types/Home'
+import { AboutMe } from '@/components/home/about-me'
+import { Projects } from '@/components/home/projects'
+import { Home } from '@/types'
 import Head from 'next/head'
 
 export default async function HomePage() {
@@ -12,8 +12,7 @@ export default async function HomePage() {
     return home
   }
 
-  const home = await loadHome()
-  const { projects } = home
+  const { projects, aboutMe } = await loadHome()
 
   return (
     <>
@@ -26,7 +25,7 @@ export default async function HomePage() {
         />
       </Head>
       <div className="py-12 px-6 md:px-32 space-y-10 md:space-y-18">
-        <AboutMe aboutMe={home.aboutMe} />
+        <AboutMe aboutMe={aboutMe} />
         <Projects projects={projects} />
       </div>
     </>
