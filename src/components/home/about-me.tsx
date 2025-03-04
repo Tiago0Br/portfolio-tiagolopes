@@ -29,7 +29,7 @@ export function AboutMe({ aboutMe }: AboutMeProps) {
           <h2 className={`${roboto.className} mb-12`}>{description}</h2>
         </div>
         <ul className="flex flex-wrap justify-center xl:grid xl:grid-cols-2 xl:w-fit gap-3 text-xl">
-          {techs.slice(0, 5).map(({ tech, color, bgcolor }) => (
+          {techs.slice(0, 6).map(({ tech, color, bgcolor }) => (
             <TechItem key={tech} name={tech} color={color} bgcolor={bgcolor} />
           ))}
         </ul>
