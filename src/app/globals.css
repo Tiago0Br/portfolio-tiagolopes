@@ -1,21 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-t-gray-500: #737994;
+  --color-t-blue-500: #8CAAEE;
+  --color-t-blue-900: #303446;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  background-color: #303446;
-  color: white;
-}
+/* {
+  width: {
+    120: '30rem',
+    125: '31.25rem',
+  },
+  height: {
+    125: '31.25rem',
+  },
+}, */
