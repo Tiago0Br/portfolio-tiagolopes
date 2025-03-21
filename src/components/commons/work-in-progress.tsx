@@ -1,15 +1,15 @@
-import Head from "next/head";
-import Link from "next/link";
-import { Roboto } from "next/font/google";
+import Head from 'next/head'
+import Link from 'next/link'
+import { Roboto } from 'next/font/google'
 
 interface WorkInProgressProps {
-  title: string;
+  title: string
 }
 
 const roboto = Roboto({
-  subsets: ["latin"],
-  weight: "500",
-});
+  subsets: ['latin'],
+  weight: '500',
+})
 
 export function WorkInProgress({ title }: WorkInProgressProps) {
   return (
@@ -21,9 +21,7 @@ export function WorkInProgress({ title }: WorkInProgressProps) {
         <h1 className="text-5xl md:text-7xl font-bold">{title}</h1>
         <p className="flex flex-col gap-8 md:gap-4 md:text-xl">
           <span>Página em desenvolvimento ...</span>
-          <span>
-            Clique no botão abaixo para ser redirecionado para a página inicial
-          </span>
+          <span>Clique no botão abaixo para ser redirecionado para a página inicial</span>
         </p>
         <Link
           href="/"
@@ -34,5 +32,5 @@ export function WorkInProgress({ title }: WorkInProgressProps) {
         </Link>
       </div>
     </>
-  );
+  )
 }

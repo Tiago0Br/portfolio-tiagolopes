@@ -11,9 +11,7 @@ interface ProjectPageProps {
   }
 }
 
-export default async function ProjectPage({
-  params: { id },
-}: ProjectPageProps) {
+export default async function ProjectPage({ params: { id } }: ProjectPageProps) {
   async function loadHome() {
     const res = await fetch(process.env.NEXT_PUBLIC_DATA_URL!)
 
@@ -36,9 +34,7 @@ export default async function ProjectPage({
       </Head>
 
       <div className="flex flex-col items-center gap-7 mb-5">
-        <h1 className="text-md text-center sm:text-2xl md:text-3xl">
-          {project.name}
-        </h1>
+        <h1 className="text-md text-center sm:text-2xl md:text-3xl">{project.name}</h1>
         <Image
           src={project.image.url}
           alt={project.image.alt}
@@ -52,12 +48,7 @@ export default async function ProjectPage({
           <h2 className="text-2xl md:text-3xl">Tecnologias utilizadas</h2>
           <ul className="flex flex-wrap justify-center gap-5">
             {project.techs.map(({ tech, color, bgcolor }) => (
-              <TechItem
-                key={tech}
-                name={tech}
-                color={color}
-                bgcolor={bgcolor}
-              />
+              <TechItem key={tech} name={tech} color={color} bgcolor={bgcolor} />
             ))}
           </ul>
         </div>

@@ -17,9 +17,7 @@ export default function NotFound() {
         <h1 className="text-5xl md:text-7xl font-bold">404</h1>
         <p className="flex flex-col gap-8 md:gap-4 md:text-xl">
           <span>Ops, a página buscada não foi encontrada D:</span>
-          <span>
-            Clique no botão abaixo para ser redirecionado para a página inicial
-          </span>
+          <span>Clique no botão abaixo para ser redirecionado para a página inicial</span>
         </p>
         <Link
           href="/"

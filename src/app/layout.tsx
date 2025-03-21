@@ -23,9 +23,7 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
       </head>
-      <body
-        className={`${jetbtainsMono.className} antialiased bg-t-blue-900 text-white`}
-      >
+      <body className={`${jetbtainsMono.className} antialiased bg-t-blue-900 text-white`}>
         <Header />
         {children}
       </body>

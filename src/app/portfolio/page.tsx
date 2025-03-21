@@ -26,12 +26,7 @@ export default async function Portfolio() {
           <h2 className="text-2xl md:text-3xl">Skills</h2>
           <ul className="flex flex-wrap justify-center xl:w-fit gap-3 text-xl">
             {data.aboutMe.techs.map(({ tech, color, bgcolor }, index) => (
-              <TechItem
-                key={tech + index}
-                name={tech}
-                color={color}
-                bgcolor={bgcolor}
-              />
+              <TechItem key={tech + index} name={tech} color={color} bgcolor={bgcolor} />
             ))}
           </ul>
 
