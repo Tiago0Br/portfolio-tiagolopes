@@ -1,3 +1,5 @@
+import { Header } from '@/components/shared/header'
+
 export default function HomePage() {
-  return <div>Início</div>
+  return <Header />
 }
