@@ -19,7 +19,7 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
       </head>
-      <body className={`${font.className} antialiased text-white bg-zinc-900`}>
+      <body className={`${font.className} antialiased text-white bg-zinc-900 dark`}>
         {children}
       </body>
     </html>
