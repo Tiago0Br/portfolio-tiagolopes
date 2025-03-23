@@ -5,10 +5,11 @@ import { prisma } from '@/lib/prisma'
 
 export default async function HomePage() {
   const technologies = await prisma.technology.findMany()
+  const technologiesWithEmphasis = technologies.filter((technology) => technology.emphasis)
 
   return (
     <div>
-      <Main />
+      <Main technologies={technologiesWithEmphasis} />
       <Container className="py-10">
         <Curriculum technologies={technologies} />
       </Container>
