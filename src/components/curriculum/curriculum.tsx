@@ -1,5 +1,7 @@
 import { Technology } from '@prisma/client'
 import { UsedTechnologies } from './used-technologies'
+import { Experience } from './experience'
+import { MiniCurriculum } from './mini-curriculum'
 
 interface CurriculumProps {
   technologies: Technology[]
@@ -7,7 +9,9 @@ interface CurriculumProps {
 
 export function Curriculum({ technologies }: CurriculumProps) {
   return (
-    <div>
+    <div className="flex flex-col lg:flex-row gap-4 min-h-72 w-full">
+      <MiniCurriculum />
+      <Experience />
       <UsedTechnologies technologies={technologies} />
     </div>
   )
