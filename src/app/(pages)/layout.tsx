@@ -1,4 +1,4 @@
-import { ButtonChat } from '@/components/chat/button-chat'
+import { ChatButton } from '@/components/chat/chat-button'
 
 export default function PagesLayout({
   children,
@@ -8,7 +8,7 @@ export default function PagesLayout({
   return (
     <div>
       {children}
-      <ButtonChat />
+      <ChatButton />
     </div>
   )
 }
