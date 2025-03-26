@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react'
 import { Container } from './container'
 import { Menu } from './menu'
 
@@ -19,13 +20,20 @@ export function Header() {
           </Link>
           <Menu />
         </div>
-        <div className="hidden sm:flex items-center">
+        <div className="hidden sm:flex items-center gap-2">
           <Link
             href="https://www.linkedin.com/in/tiago-lopes-7ab0b71a4"
             target="_blank"
-            className="bg-red-500 rounded-full px-7 py-1 text-sm font-bold"
+            className="text-blue-400 hover:text-blue-600 transition-colors"
           >
-            Perfil
+            <IconBrandLinkedin size={40} />
+          </Link>
+          <Link
+            href="https://github.com/Tiago0Br"
+            target="_blank"
+            className="text-blue-400 hover:text-blue-600 transition-colors"
+          >
+            <IconBrandGithub size={40} />
           </Link>
         </div>
       </Container>

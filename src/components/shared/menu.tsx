@@ -34,7 +34,7 @@ function MenuItem({ children, href, selected = false, newTab = false }: MenuItem
       <span
         data-selected={selected}
         className="
-          flex items-center gap-2 text-sm border-red-600 text-zinc-300
+          flex items-center gap-2 text-sm border-blue-600 text-zinc-300
           hover:text-white data-[selected=true]:border-b-4 data-[selected=true]:text-white
         "
       >

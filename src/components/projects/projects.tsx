@@ -15,7 +15,7 @@ interface ProjectsProps {
 
 export function Projects({ title, projects }: ProjectsProps) {
   return (
-    <div className="flex flex-col items-center sm:items-start w-7/10 md:w-11/12 xl:w-full">
+    <div className="flex flex-col items-center gap-4 sm:items-start w-7/10 md:w-11/12 xl:w-full">
       <h3 className="text-2xl font-bold text-white/70">{title}</h3>
       <Carousel opts={{ align: 'center', loop: true }} className="w-full">
         <CarouselContent className="flex">

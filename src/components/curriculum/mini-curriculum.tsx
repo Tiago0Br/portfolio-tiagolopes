@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export function MiniCurriculum() {
   return (
-    <div className="flex-1 flex bg-black border border-zinc-800 rounded-md px-6 pt-6 gap-4">
+    <div className="flex-1 flex flex-col md:flex-row items-center bg-black border border-zinc-800 rounded-md px-6 gap-4">
       <div className="relative w-64 h-60 rounded-full overflow-hidden">
         <Image
           src="https://github.com/Tiago0Br.png"
@@ -13,7 +13,7 @@ export function MiniCurriculum() {
       </div>
       <div className="flex flex-col gap-5 self-center py-6 max-w-[400px]">
         <div className="flex flex-col items-start">
-          <span className="bg-gradient-to-r from-red-500 via-white to-white text-transparent bg-clip-text text-2xl font-bold">
+          <span className="bg-gradient-to-r from-blue-600 via-20% to-white text-transparent bg-clip-text text-2xl font-bold">
             Tiago Lopes
           </span>
           <span>Desenvolvedor Fullstack</span>
