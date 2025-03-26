@@ -1,27 +1,32 @@
-import { Technology } from '@prisma/client'
 import Image from 'next/image'
+import { Technology } from '@prisma/client'
 
-interface TechnologyProps {
+export interface TecnologiasProps {
   technologies: Technology[]
+  smallSize?: boolean
 }
 
-export function Technologies({ technologies }: TechnologyProps) {
-  return (
+export function Technologies({ technologies, smallSize }: TecnologiasProps) {
+  return technologies ? (
     <div className="flex justify-center gap-4 flex-wrap w-4/5">
       {technologies.map((technology) => (
         <div key={technology.id} className="flex flex-col items-center gap-1">
-          <span className="relative size-11 sm:size-16 rounded-xl overflow-hidden">
+          <span
+            className={`
+							relative h-11 w-11 rounded-xl overflow-hidden
+							${!smallSize && 'sm:h-16 sm:w-16'}
+						`}
+          >
             <Image
               src={technology.image}
-              alt={`Logo da tecnologia ${technology.name}`}
+              alt={technology.name}
               fill
-              draggable={false}
               className="object-contain"
             />
           </span>
-          <span className="text-xs text-zinc-400">{technology.name}</span>
+          <span className="text-[10px] text-zinc-400">{technology.name}</span>
         </div>
       ))}
     </div>
-  )
+  ) : null
 }
