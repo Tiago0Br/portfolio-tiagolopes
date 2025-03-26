@@ -20,7 +20,7 @@ export function Projects({ title, projects }: ProjectsProps) {
       <Carousel opts={{ align: 'center', loop: true }} className="w-full">
         <CarouselContent className="flex">
           {projects.map((project) => (
-            <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+            <CarouselItem key={project.id} className="md:basis-1/3">
               <ProjectItem project={project} />
             </CarouselItem>
           ))}
