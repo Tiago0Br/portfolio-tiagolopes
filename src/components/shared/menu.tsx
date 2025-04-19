@@ -9,12 +9,12 @@ export function Menu() {
   return (
     <nav className="flex gap-6">
       <MenuItem href="/" selected={path === '/'}>
-        Home
+        Início
       </MenuItem>
       <MenuItem href="/projects/1" selected={path.startsWith('/projects')}>
         Projetos
       </MenuItem>
-      <MenuItem href="/contact" newTab>
+      <MenuItem href="/contact" selected={path === '/contact'}>
         Contato
       </MenuItem>
     </nav>

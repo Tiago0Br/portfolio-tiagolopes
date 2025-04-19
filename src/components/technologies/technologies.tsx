@@ -22,9 +22,10 @@ export function Technologies({ technologies, smallSize }: TecnologiasProps) {
               alt={technology.name}
               fill
               className="object-contain"
+              draggable={false}
             />
           </span>
-          <span className="text-[10px] text-zinc-400">{technology.name}</span>
+          <span className="text-[12px] text-zinc-400">{technology.name}</span>
         </div>
       ))}
     </div>

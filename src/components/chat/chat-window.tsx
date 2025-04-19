@@ -11,6 +11,8 @@ export function ChatWindow() {
   const endChatRef = useRef<HTMLDivElement>(null)
 
   function sendMessage() {
+    if (text.trim() === '') return
+
     addMessage(text)
     setText('')
   }
@@ -62,8 +64,9 @@ export function ChatWindow() {
             if (e.key === 'Enter') sendMessage()
           }}
         />
+
         <button
-          className="flex justify-center items-center min-h-8 min-w-8 rounded-full bg-red-500"
+          className="flex justify-center items-center min-h-8 min-w-8 rounded-full bg-red-500 cursor-pointer hover:bg-red-600 transition-colors"
           onClick={sendMessage}
         >
           <IconSend className="text-white" size={18} />

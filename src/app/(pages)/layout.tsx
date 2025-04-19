@@ -1,5 +1,3 @@
-import { ChatButton } from '@/components/chat/chat-button'
-
 export default function PagesLayout({
   children,
 }: Readonly<{
@@ -8,7 +6,7 @@ export default function PagesLayout({
   return (
     <div>
       {children}
-      <ChatButton />
+      {/* <ChatButton /> */}
     </div>
   )
 }
