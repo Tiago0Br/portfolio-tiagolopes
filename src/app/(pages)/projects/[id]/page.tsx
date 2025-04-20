@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { prisma } from '@/lib/prisma'
 import { getProjectReadme } from '@/actions/get-project-readme'
 import { Header } from '@/components/shared/header'
@@ -6,11 +7,35 @@ import { CarouselImages } from '@/components/projects/carousel-images'
 import { Technologies } from '@/components/technologies/technologies'
 import { ProjectReadme } from '@/components/projects/project-readme'
 
-// export const revalidate = 3600
-
 interface ProjectPageProps {
   params: {
     id: string
+  }
+}
+
+export async function generateStaticParams(): Promise<ProjectPageProps['params'][]> {
+  const projects = await prisma.project.findMany()
+
+  return projects.map((project) => ({ id: String(project.id) }))
+}
+
+export async function generateMetadata({
+  params: { id },
+}: ProjectPageProps): Promise<Metadata> {
+  const project = await prisma.project.findUnique({
+    where: {
+      id: Number(id),
+    },
+  })
+
+  return {
+    title: `${project?.name ?? 'Projeto de programação'} | Tiago Lopes`,
+    description: project?.description ?? '',
+    openGraph: {
+      locale: 'pt_BR',
+      title: `${project?.name ?? 'Projeto de programação'} | Tiago Lopes`,
+      description: project?.description ?? '',
+    },
   }
 }
 

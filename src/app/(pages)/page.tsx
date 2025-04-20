@@ -3,6 +3,12 @@ import { Main } from '@/components/landing/main'
 import { Projects } from '@/components/projects/projects'
 import { Container } from '@/components/shared/container'
 import { prisma } from '@/lib/prisma'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Início | Tiago Lopes',
+  description: 'Portfólio do desenvolvedor fullstack Tiago Lopes',
+}
 
 export default async function HomePage() {
   const technologies = await prisma.technology.findMany()
