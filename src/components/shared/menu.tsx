@@ -11,7 +11,7 @@ export function Menu() {
       <MenuItem href="/" selected={path === '/'}>
         Início
       </MenuItem>
-      <MenuItem href="/projects/1" selected={path.startsWith('/projects')}>
+      <MenuItem href="/projects" selected={path.startsWith('/projects')}>
         Projetos
       </MenuItem>
       <MenuItem href="/contact" selected={path === '/contact'}>

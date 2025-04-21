@@ -19,7 +19,7 @@ export default async function HomePage() {
     <div>
       <Main technologies={technologiesWithEmphasis} />
       <Container className="py-16 flex flex-col gap-7">
-        <Projects title="Projetos" projects={projects} />
+        <Projects title="Principais projetos" projects={projects} />
         <Curriculum technologies={technologies} />
       </Container>
     </div>
