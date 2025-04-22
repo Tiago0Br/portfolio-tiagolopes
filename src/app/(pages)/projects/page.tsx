@@ -10,17 +10,26 @@ export const metadata: Metadata = {
 }
 
 export default async function ProjectsPage() {
-  const projects = await prisma.project.findMany()
+  const projects = await prisma.project.findMany({
+    include: {
+      technologies: true,
+    },
+  })
 
   return (
     <>
       <Header />
-      <Container className="flex flex-col items-center mt-20 gap-8">
+      <Container className="flex flex-col items-center pt-20 pb-6 gap-8">
         <h1 className="text-4xl font-bold">Projetos</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <ProjectItem key={project.id} project={project} />
+            <ProjectItem
+              key={project.id}
+              project={project}
+              technologies={project.technologies}
+              variant="full"
+            />
           ))}
         </div>
       </Container>
