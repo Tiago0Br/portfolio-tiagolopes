@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "prisma generate && prisma migrate deploy",
     "build": "next build",
     "lint": "prettier --check .",
     "format": "prettier --write ."
