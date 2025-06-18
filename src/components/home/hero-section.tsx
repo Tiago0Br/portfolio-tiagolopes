@@ -51,10 +51,11 @@ export const HeroSection = () => {
             variants={fadeInUpVariants}
             custom={0}
           >
-            Hi, I'm{' '}
+            Olá!{' '}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary animate-gradient-x">
-              Tiago Lopes
+              Tiago Lopes{' '}
             </span>
+            aqui!
           </motion.h1>
 
           <motion.div
