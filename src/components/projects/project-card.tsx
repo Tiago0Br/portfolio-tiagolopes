@@ -12,7 +12,7 @@ interface ProjectCardProps {
   index: number
 }
 
-export const ProjectCard = ({ project, index }: ProjectCardProps) => {
+export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

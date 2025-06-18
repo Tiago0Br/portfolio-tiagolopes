@@ -11,7 +11,7 @@ interface ProjectCarouselProps {
   title: string
 }
 
-export const ProjectCarousel = ({ images, title }: ProjectCarouselProps) => {
+export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const nextSlide = () => {
