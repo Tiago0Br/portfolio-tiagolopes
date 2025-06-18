@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, ExternalLink, FileText, Github } from 'lucide-react'
-import { getProjectById } from '@/lib/data/projects'
 import { ProjectCarousel } from '@/components/projects/project-caroulsel'
 import { TechIcons } from '@/components/projects/tech-icons'
+import { prisma } from '@/lib/prisma'
 
 interface ProjectDetailsPageProps {
   params: Promise<{ id: string }>
@@ -15,7 +15,14 @@ export async function generateMetadata({
   params,
 }: ProjectDetailsPageProps): Promise<Metadata> {
   const { id } = await params
-  const project = getProjectById(id)
+  const project = await prisma.project.findUnique({
+    where: {
+      id: Number(id),
+    },
+    include: {
+      technologies: true,
+    },
+  })
 
   if (!project) {
     return {
@@ -24,14 +31,21 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} | Tiago Lopes`,
+    title: `${project.name} | Tiago Lopes`,
     description: project.description,
   }
 }
 
 export default async function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
   const { id } = await params
-  const project = getProjectById(id)
+  const project = await prisma.project.findUnique({
+    where: {
+      id: Number(id),
+    },
+    include: {
+      technologies: true,
+    },
+  })
 
   if (!project) {
     notFound()
@@ -52,13 +66,13 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <h1 className="text-3xl font-bold mb-6">{project.title}</h1>
+          <h1 className="text-3xl font-bold mb-6">{project.name}</h1>
 
-          <ProjectCarousel images={project.images} title={project.title} />
+          <ProjectCarousel images={project.images} title={project.name} />
 
           <div className="mt-8">
-            <h2 className="text-xl font-semibold mb-4">Project Overview</h2>
-            <p className="text-muted-foreground">{project.longDescription}</p>
+            <h2 className="text-xl font-semibold mb-4">Detalhes do projeto</h2>
+            <p className="text-muted-foreground">{project.description}</p>
           </div>
         </div>
 
@@ -66,31 +80,17 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
           <div className="gamer-card p-6">
             <h3 className="text-lg font-semibold mb-4">Links úteis</h3>
 
-            <div className="space-y-3">
-              {project.links.github && (
-                <Button variant="outline" className="w-full justify-start" asChild>
-                  <Link href={project.links.github} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-5 w-5" /> Repositório no GitHub
-                  </Link>
-                </Button>
-              )}
+            <div className="flex items-center gap-3">
+              <Button variant="outline" className="w-full justify-start" asChild>
+                <Link href={project.repository} target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-5 w-5" /> Repositório no GitHub
+                </Link>
+              </Button>
 
-              {project.links.live && (
+              {project.repository && (
                 <Button className="w-full justify-start" asChild>
-                  <Link href={project.links.live} target="_blank" rel="noopener noreferrer">
+                  <Link href={project.repository} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-5 w-5" /> Link do projeto
-                  </Link>
-                </Button>
-              )}
-
-              {project.links.documentation && (
-                <Button variant="secondary" className="w-full justify-start" asChild>
-                  <Link
-                    href={project.links.documentation}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FileText className="mr-2 h-5 w-5" /> Documentação
                   </Link>
                 </Button>
               )}
@@ -102,7 +102,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
             <TechIcons
               technologies={project.technologies}
               showLabels={true}
-              className="flex-col items-start gap-3"
+              className="flex-row items-center gap-3 flex-wrap"
             />
           </div>
         </div>

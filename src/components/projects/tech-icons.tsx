@@ -1,6 +1,5 @@
 'use client'
 
-import { Technology } from '@/lib/data/projects'
 import {
   Tooltip,
   TooltipContent,
@@ -8,6 +7,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
+import { Technology } from '@prisma/client'
 
 interface TechIconsProps {
   technologies: Technology[]
@@ -15,7 +15,7 @@ interface TechIconsProps {
   showLabels?: boolean
 }
 
-export const TechIcons = ({ technologies, className, showLabels = false }: TechIconsProps) => {
+export function TechIcons({ technologies, className, showLabels = true }: TechIconsProps) {
   return (
     <div className={cn('flex flex-wrap gap-2', className)}>
       {technologies.map((tech) => (
@@ -23,12 +23,7 @@ export const TechIcons = ({ technologies, className, showLabels = false }: TechI
           <Tooltip>
             <TooltipTrigger asChild>
               <div className="tech-badge">
-                <img
-                  src={`https://cdn.simpleicons.org/${tech.icon}`}
-                  alt={tech.name}
-                  className="w-4 h-4"
-                  style={{ filter: 'brightness(0) invert(1)' }}
-                />
+                <img src={tech.image} alt={tech.name} className="w-4 h-4" />
                 {showLabels && <span className="ml-1">{tech.name}</span>}
               </div>
             </TooltipTrigger>

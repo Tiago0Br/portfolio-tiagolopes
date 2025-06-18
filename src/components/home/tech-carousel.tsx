@@ -2,18 +2,13 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { technologies } from '@/lib/data/projects'
+import { Technology } from '@prisma/client'
 
-const techStack = [
-  technologies.nodejs,
-  technologies.php,
-  technologies.typescript,
-  technologies.javascript,
-  { name: 'HTML', icon: 'html5', color: '#E34F26' },
-  { name: 'CSS', icon: 'css3', color: '#1572B6' },
-]
+interface TechCarouselProps {
+  techStack: Technology[]
+}
 
-export const TechCarousel = () => {
+export const TechCarousel = ({ techStack }: TechCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -54,7 +49,7 @@ export const TechCarousel = () => {
           <h2 className="text-3xl font-bold mb-3">Tecnologias</h2>
           <div className="w-24 h-1 mx-auto bg-gradient-to-r from-primary to-accent"></div>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Veja algumas das tecnologias que eu tenho algum conhecimento
+            Linguagens de programação e ferramentas que eu tenho conhecimento
           </p>
         </div>
 
@@ -71,13 +66,9 @@ export const TechCarousel = () => {
               <div className="relative mb-4">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center backdrop-blur-sm border border-primary/30">
                   <img
-                    src={`https://cdn.simpleicons.org/${techStack[currentIndex].icon}`}
+                    src={techStack[currentIndex].image}
                     alt={techStack[currentIndex].name}
                     className="w-12 h-12"
-                    style={{
-                      filter: 'brightness(0) invert(1)',
-                      color: techStack[currentIndex].color,
-                    }}
                   />
                 </div>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 animate-pulse"></div>
@@ -88,7 +79,6 @@ export const TechCarousel = () => {
             </motion.div>
           </div>
 
-          {/* Tech navigation dots */}
           <div className="flex justify-center space-x-4 mb-8">
             {techStack.map((tech, index) => (
               <button
@@ -105,15 +95,9 @@ export const TechCarousel = () => {
                       : 'border-muted hover:border-primary/50 bg-muted/10'
                   }`}
                 >
-                  <img
-                    src={`https://cdn.simpleicons.org/${tech.icon}`}
-                    alt={tech.name}
-                    className="w-6 h-6"
-                    style={{ filter: 'brightness(0) invert(1)' }}
-                  />
+                  <img src={tech.image} alt={tech.name} className="w-6 h-6" />
                 </div>
 
-                {/* Tooltip */}
                 <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/90 backdrop-blur-sm border border-border rounded px-2 py-1 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
                   {tech.name}
                 </div>
@@ -121,13 +105,12 @@ export const TechCarousel = () => {
             ))}
           </div>
 
-          {/* Animated background elements */}
           <div className="absolute inset-0 -z-10 overflow-hidden">
             <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/5 rounded-full blur-xl animate-pulse"></div>
             <div
               className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-accent/5 rounded-full blur-xl animate-pulse"
               style={{ animationDelay: '1s' }}
-            ></div>
+            />
           </div>
         </div>
       </div>
