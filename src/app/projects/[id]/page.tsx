@@ -8,15 +8,14 @@ import { ProjectCarousel } from '@/components/projects/project-caroulsel'
 import { TechIcons } from '@/components/projects/tech-icons'
 
 interface ProjectDetailsPageProps {
-  params: {
-    id: string
-  }
+  params: Promise<{ id: string }>
 }
 
 export async function generateMetadata({
   params,
 }: ProjectDetailsPageProps): Promise<Metadata> {
-  const project = getProjectById(params.id)
+  const { id } = await params
+  const project = getProjectById(id)
 
   if (!project) {
     return {
@@ -30,8 +29,9 @@ export async function generateMetadata({
   }
 }
 
-export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
-  const project = getProjectById(params.id)
+export default async function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
+  const { id } = await params
+  const project = getProjectById(id)
 
   if (!project) {
     notFound()

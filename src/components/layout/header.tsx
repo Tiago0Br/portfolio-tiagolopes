@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
-import { Menu, X, Code, Home, MailPlus, Gamepad2 } from 'lucide-react'
+import { Menu, X, Code, CodeXml, Home, MailPlus } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export const Header = () => {
@@ -44,7 +44,7 @@ export const Header = () => {
             href="/"
             className="flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors"
           >
-            <Gamepad2 className="h-6 w-6" />
+            <CodeXml className="h-6 w-6" />
             <span className="font-bold text-xl">Tiago Lopes</span>
           </Link>
 
