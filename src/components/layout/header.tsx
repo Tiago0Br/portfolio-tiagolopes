@@ -29,9 +29,9 @@ export const Header = () => {
   }, [pathname])
 
   const navItems = [
-    { name: 'Home', path: '/', icon: <Home className="w-4 h-4 mr-2" /> },
-    { name: 'Projects', path: '/projects', icon: <Code className="w-4 h-4 mr-2" /> },
-    { name: 'Contact', path: '/contact', icon: <MailPlus className="w-4 h-4 mr-2" /> },
+    { name: 'Início', path: '/', icon: <Home className="w-4 h-4 mr-2" /> },
+    { name: 'Projetos', path: '/projects', icon: <Code className="w-4 h-4 mr-2" /> },
+    { name: 'Contato', path: '/contact', icon: <MailPlus className="w-4 h-4 mr-2" /> },
   ]
 
   return (

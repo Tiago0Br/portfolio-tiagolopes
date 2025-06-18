@@ -51,10 +51,10 @@ export const TechCarousel = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-3">Technologies & Skills</h2>
+          <h2 className="text-3xl font-bold mb-3">Tecnologias</h2>
           <div className="w-24 h-1 mx-auto bg-gradient-to-r from-primary to-accent"></div>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Technologies I work with to build amazing web applications
+            Veja algumas das tecnologias que eu tenho algum conhecimento
           </p>
         </div>
 

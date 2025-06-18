@@ -9,7 +9,7 @@ import { ChevronRight, Github } from 'lucide-react'
 
 export const HeroSection = () => {
   const [typedText, setTypedText] = useState('')
-  const fullText = 'Fullstack Web Developer'
+  const fullText = 'Desenvolvedor Fullstack'
 
   useEffect(() => {
     if (typedText === fullText) return
@@ -84,7 +84,7 @@ export const HeroSection = () => {
           >
             <Button asChild>
               <Link href="/projects">
-                View Projects <ChevronRight className="ml-2 h-4 w-4" />
+                Ver projetos <ChevronRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
 

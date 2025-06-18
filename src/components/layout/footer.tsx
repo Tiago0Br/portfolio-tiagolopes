@@ -5,12 +5,12 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-border/30 bg-background/80 backdrop-blur-sm py-6 mt-auto">
+    <footer className="absolute bottom-0 w-full border-t border-border/30 bg-background/80 backdrop-blur-sm py-6 mt-auto">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-sm text-muted-foreground">
-              &copy; {currentYear} Tiago Lopes. All rights reserved.
+              Feito com ❤️ por Tiago Tavares Lopes &copy; {currentYear}
             </p>
           </div>
 
@@ -26,7 +26,7 @@ export const Footer = () => {
             </Link>
 
             <Link
-              href="https://linkedin.com/in/"
+              href="https://linkedin.com/in/tiago-tavares-lopes/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -36,7 +36,7 @@ export const Footer = () => {
             </Link>
 
             <Link
-              href="mailto:email@example.com"
+              href="mailto:tiagoltavares2002@gmail.com"
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               <Mail className="h-5 w-5" />
@@ -44,7 +44,7 @@ export const Footer = () => {
             </Link>
 
             <Link
-              href="https://t.me/"
+              href="https://t.me/tiagolopesdev"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"

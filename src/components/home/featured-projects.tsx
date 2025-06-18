@@ -27,10 +27,10 @@ export const FeaturedProjects = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-3">Featured Projects</h2>
+          <h2 className="text-3xl font-bold mb-3">Projetos principais</h2>
           <div className="w-24 h-1 mx-auto bg-gradient-to-r from-primary to-accent"></div>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Check out some of my best work and recent projects
+            Veja alguns dos meus projetos desenvolvidos
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export const FeaturedProjects = () => {
 
         <div className="text-center mt-10">
           <Button asChild>
-            <Link href="/projects">View All Projects</Link>
+            <Link href="/projects">Todos os projetos</Link>
           </Button>
         </div>
       </div>
@@ -138,13 +138,13 @@ const FeaturedProjectCard = ({ project }: { project: Project }) => {
                 {project.links.live && (
                   <Button size="sm" asChild>
                     <Link href={project.links.live} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                      <ExternalLink className="mr-2 h-4 w-4" /> Projeto rodando
                     </Link>
                   </Button>
                 )}
 
                 <Button variant="secondary" size="sm" asChild>
-                  <Link href={`/projects/${project.id}`}>View Details</Link>
+                  <Link href={`/projects/${project.id}`}>Detalhes do projeto</Link>
                 </Button>
               </div>
             </div>

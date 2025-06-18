@@ -8,13 +8,13 @@ import { Footer } from '@/components/layout/footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Tiago Lopes | Developer Portfolio',
-  description: 'Fullstack Web Developer Portfolio - Tiago Lopes',
+  title: 'Portfólio | Tiago Lopes',
+  description: 'Tiago Lopes - Desenvolvedor Fullstack',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR">
       <body
         className={`${inter.className} min-h-screen bg-background text-foreground relative`}
       >

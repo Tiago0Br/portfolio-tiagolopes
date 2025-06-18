@@ -20,7 +20,7 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: 'Project Not Found | Tiago Lopes',
+      title: 'Projeto não encontrado | Tiago Lopes',
     }
   }
 
@@ -45,7 +45,7 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
             href="/projects"
             className="flex items-center text-muted-foreground hover:text-foreground transition-colors"
           >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
+            <ArrowLeft className="mr-2 h-4 w-4" /> Voltar para os projetos
           </Link>
         </Button>
       </div>
@@ -64,13 +64,13 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
 
         <div className="space-y-6">
           <div className="gamer-card p-6">
-            <h3 className="text-lg font-semibold mb-4">Project Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Links úteis</h3>
 
             <div className="space-y-3">
               {project.links.github && (
                 <Button variant="outline" className="w-full justify-start" asChild>
                   <Link href={project.links.github} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-5 w-5" /> GitHub Repository
+                    <Github className="mr-2 h-5 w-5" /> Repositório no GitHub
                   </Link>
                 </Button>
               )}
@@ -78,7 +78,7 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
               {project.links.live && (
                 <Button className="w-full justify-start" asChild>
                   <Link href={project.links.live} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-5 w-5" /> Live Demo
+                    <ExternalLink className="mr-2 h-5 w-5" /> Link do projeto
                   </Link>
                 </Button>
               )}
@@ -90,7 +90,7 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <FileText className="mr-2 h-5 w-5" /> Documentation
+                    <FileText className="mr-2 h-5 w-5" /> Documentação
                   </Link>
                 </Button>
               )}
@@ -98,7 +98,7 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
           </div>
 
           <div className="gamer-card p-6">
-            <h3 className="text-lg font-semibold mb-4">Technologies Used</h3>
+            <h3 className="text-lg font-semibold mb-4">Tecnologias utilizadas</h3>
             <TechIcons
               technologies={project.technologies}
               showLabels={true}
