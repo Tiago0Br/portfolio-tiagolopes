@@ -1,27 +1,20 @@
-import { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
-
-export const metadata: Metadata = {
-  title: '404 | Tiago Lopes',
-  description: 'Portfólio do desenvolvedor fullstack Tiago Lopes',
-}
+import { Button } from '@/components/ui/button'
+import { Home } from 'lucide-react'
 
 export default function NotFound() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen gap-8">
-      <h1 className="text-4xl font-bold">Página não encontrada</h1>
-      <Image
-        src="/not-found.png"
-        alt="Ilustração com o texto 404"
-        width={500}
-        height={400}
-        draggable={false}
-      />
-
-      <Link href="/" className="text-blue-400 hover:text-blue-600 transition-colors">
-        Voltar para a tela inicial
-      </Link>
-    </main>
+    <div className="flex flex-col items-center justify-center min-h-[70vh] py-12 page-transition">
+      <h1 className="text-5xl font-bold mb-4">Ops</h1>
+      <div className="text-xl font-bold mb-6">Página não encontrada</div>
+      <p className="text-muted-foreground text-center max-w-md mb-8">
+        A página que você procura não foi encontrada D:
+      </p>
+      <Button asChild>
+        <Link href="/">
+          <Home className="mr-2 h-4 w-4" /> Voltar para o início
+        </Link>
+      </Button>
+    </div>
   )
 }
