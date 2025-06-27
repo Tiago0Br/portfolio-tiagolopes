@@ -61,7 +61,7 @@ export const TechCarousel = ({ techStack }: TechCarouselProps) => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="gamer-card p-8 flex flex-col items-center justify-center min-h-[200px] w-80"
+              className="hidden md:flex gamer-card p-8 flex-col items-center justify-center min-h-[200px] w-80"
             >
               <div className="relative mb-4">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center backdrop-blur-sm border border-primary/30">
@@ -79,7 +79,7 @@ export const TechCarousel = ({ techStack }: TechCarouselProps) => {
             </motion.div>
           </div>
 
-          <div className="flex justify-center space-x-4 mb-8">
+          <div className="m-auto flex flex-wrap max-w-3xl gap-2 items-center">
             {techStack.map((tech, index) => (
               <button
                 key={tech.name}

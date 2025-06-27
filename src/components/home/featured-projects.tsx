@@ -2,13 +2,10 @@
 
 import { useRef, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import { ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react'
-import { TechIcons } from '@/components/projects/tech-icons'
-import { motion } from 'framer-motion'
 import { Prisma } from '@prisma/client'
+import { FeaturedProjectCard } from '../projects/featured-project-card'
 
 type Project = Prisma.ProjectGetPayload<{ include: { technologies: true } }>
 
@@ -94,62 +91,5 @@ export function FeaturedProjects({ featuredProjects }: FeaturedProjectCardProps)
         </div>
       </div>
     </section>
-  )
-}
-
-const FeaturedProjectCard = ({ project }: { project: Project }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <Card className="gamer-card md:min-h-[400px] overflow-hidden">
-        <CardContent className="p-0 h-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:min-h-[400px] h-full">
-            <div className="md:min-h-[400px] relative h-full">
-              <Image
-                src={project.images[0]}
-                alt={project.name}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent md:bg-gradient-to-l" />
-            </div>
-
-            <div className="p-6 flex flex-col">
-              <h3 className="text-2xl font-bold mb-3">{project.name}</h3>
-
-              <p className="text-muted-foreground mb-6 flex-grow line-clamp-4">
-                {project.description}
-              </p>
-
-              <TechIcons technologies={project.technologies} className="mb-6" />
-
-              <div className="flex flex-wrap gap-3">
-                <Button variant="outline" size="sm" asChild>
-                  <Link href={project.repository} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" /> GitHub
-                  </Link>
-                </Button>
-
-                {project.repository && (
-                  <Button size="sm" asChild>
-                    <Link href={project.repository} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" /> Link do projeto
-                    </Link>
-                  </Button>
-                )}
-
-                <Button variant="secondary" size="sm" asChild>
-                  <Link href={`/projects/${project.id}`}>Detalhes do projeto</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </motion.div>
   )
 }

@@ -43,6 +43,7 @@ model Project {
   type         ProjectType
   emphasis     Boolean      @default(false)
   repository   String
+  appLink      String?      @map("app_link")
   technologies Technology[]
 
   @@map("projects")

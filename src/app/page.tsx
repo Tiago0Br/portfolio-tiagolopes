@@ -11,9 +11,7 @@ export default async function Home() {
     take: 4,
   })
 
-  const technologies = await prisma.technology.findMany({
-    take: 6,
-  })
+  const technologies = await prisma.technology.findMany()
 
   return (
     <div className="page-transition">

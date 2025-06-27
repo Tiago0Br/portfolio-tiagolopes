@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, ExternalLink, FileText, Github } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
 import { ProjectCarousel } from '@/components/projects/project-caroulsel'
 import { TechIcons } from '@/components/projects/tech-icons'
 import { prisma } from '@/lib/prisma'
@@ -87,9 +87,9 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
                 </Link>
               </Button>
 
-              {project.repository && (
+              {project.appLink && (
                 <Button className="w-full justify-start" asChild>
-                  <Link href={project.repository} target="_blank" rel="noopener noreferrer">
+                  <Link href={project.appLink} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-5 w-5" /> Link do projeto
                   </Link>
                 </Button>
