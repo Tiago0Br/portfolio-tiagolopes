@@ -42,14 +42,14 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
               <TechIcons technologies={project.technologies} className="mb-6" />
 
               <div className="flex flex-wrap gap-3">
-                <Button variant="outline" size="sm" asChild className="hidden md:block">
+                <Button variant="outline" size="sm" asChild className="hidden md:flex">
                   <Link href={project.repository} target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" /> GitHub
                   </Link>
                 </Button>
 
                 {project.appLink && (
-                  <Button size="sm" asChild className="hidden md:block">
+                  <Button size="sm" asChild className="hidden md:flex">
                     <Link href={project.appLink} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" /> Link do projeto
                     </Link>

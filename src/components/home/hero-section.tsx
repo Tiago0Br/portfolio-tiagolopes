@@ -9,17 +9,29 @@ import { ChevronRight, Github } from 'lucide-react'
 
 export const HeroSection = () => {
   const [typedText, setTypedText] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
   const fullText = 'Desenvolvedor Fullstack'
 
   useEffect(() => {
-    if (typedText === fullText) return
-
     const timeout = setTimeout(() => {
-      setTypedText(fullText.slice(0, typedText.length + 1))
+      if (!isDeleting && typedText === fullText) {
+        setTimeout(() => setIsDeleting(true), 2000)
+        return
+      }
+
+      if (isDeleting) {
+        if (typedText === 'Desenvolvedor') {
+          setIsDeleting(false)
+        } else {
+          setTypedText(typedText.slice(0, -1))
+        }
+      } else {
+        setTypedText(fullText.slice(0, typedText.length + 1))
+      }
     }, 100)
 
     return () => clearTimeout(timeout)
-  }, [typedText, fullText])
+  }, [typedText, fullText, isDeleting])
 
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -115,6 +127,7 @@ export const HeroSection = () => {
               sizes="(max-width: 768px) 256px, 320px"
               priority
               className="object-cover"
+              draggable={false}
             />
           </div>
         </motion.div>
