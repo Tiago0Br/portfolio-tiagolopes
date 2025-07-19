@@ -8,12 +8,12 @@ datasource db {
 }
 
 model Technology {
-  id          Int       @id @default(autoincrement())
-  name        String
-  description String
-  image       String
-  emphasis    Boolean   @default(false)
-  projects    Project[]
+  id            Int       @id @default(autoincrement())
+  name          String
+  description   String
+  image         String
+  priorityOrder Int?      @map("priority_order")
+  projects      Project[]
 
   @@map("technologies")
 }
@@ -35,16 +35,16 @@ enum ProjectType {
 }
 
 model Project {
-  id           Int          @id @default(autoincrement())
-  name         String
-  description  String
-  images       String[]
-  level        ProjectLevel
-  type         ProjectType
-  emphasis     Boolean      @default(false)
-  repository   String
-  appLink      String?      @map("app_link")
-  technologies Technology[]
+  id            Int          @id @default(autoincrement())
+  name          String
+  description   String
+  images        String[]
+  level         ProjectLevel
+  type          ProjectType
+  repository    String
+  appLink       String?      @map("app_link")
+  priorityOrder Int?         @map("priority_order")
+  technologies  Technology[]
 
   @@map("projects")
 }

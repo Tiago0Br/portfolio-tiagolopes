@@ -6,7 +6,7 @@ interface TechCarouselProps {
   techStack: Technology[]
 }
 
-export const TechCarousel = ({ techStack }: TechCarouselProps) => {
+export const TechList = ({ techStack }: TechCarouselProps) => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
@@ -19,7 +19,7 @@ export const TechCarousel = ({ techStack }: TechCarouselProps) => {
         </div>
 
         <div className="relative max-w-4xl mx-auto">
-          <div className="m-auto flex flex-wrap max-w-3xl gap-2 items-center">
+          <div className="m-auto flex flex-wrap max-w-3xl gap-2 items-center justify-center">
             {techStack.map((tech) => (
               <button
                 key={tech.name}

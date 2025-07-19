@@ -1,5 +1,5 @@
 import { HeroSection } from '@/components/home/hero-section'
-import { TechCarousel } from '@/components/home/tech-carousel'
+import { TechList } from '@/components/home/tech-list'
 import { FeaturedProjects } from '@/components/home/featured-projects'
 import { prisma } from '@/lib/prisma'
 
@@ -9,14 +9,17 @@ export default async function Home() {
       technologies: true,
     },
     take: 4,
+    orderBy: [{ priorityOrder: 'asc' }, { id: 'asc' }],
   })
 
-  const technologies = await prisma.technology.findMany()
+  const technologies = await prisma.technology.findMany({
+    orderBy: [{ priorityOrder: 'asc' }, { id: 'asc' }],
+  })
 
   return (
     <div className="page-transition">
       <HeroSection />
-      <TechCarousel techStack={technologies} />
+      <TechList techStack={technologies} />
       <FeaturedProjects featuredProjects={projects} />
     </div>
   )
