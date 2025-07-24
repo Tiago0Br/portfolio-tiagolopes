@@ -12,6 +12,7 @@ export default async function ProjectsPage() {
     include: {
       technologies: true,
     },
+    orderBy: [{ priorityOrder: 'asc' }, { id: 'asc' }],
   })
 
   return (

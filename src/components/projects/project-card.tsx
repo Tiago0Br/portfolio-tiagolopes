@@ -35,9 +35,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <CardContent className="p-6 flex flex-col flex-grow">
             <h3 className="text-xl font-bold mb-2 group-hover:text-primary">{project.name}</h3>
 
-            <p className="text-muted-foreground mb-4 flex-grow line-clamp-4">
-              {project.description}
-            </p>
+            <div className="flex-grow">
+              <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+            </div>
 
             <TechIcons technologies={project.technologies} />
           </CardContent>
