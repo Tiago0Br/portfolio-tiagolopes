@@ -87,7 +87,7 @@ export const HeroSection = () => {
             custom={2}
           >
             Formado em Ciência da Computação pela Faculdade de Americana. Atualmente
-            trabalhando como Desenvolvedor Backend PHP na empresa Troupe Tecnologia LTDA.
+            estou cursando a pós-graduação Tech Developer 360 da Faculdade de Tecnologia Rocketseat.
           </motion.p>
 
           <motion.div
