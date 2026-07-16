@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/correctness/noUnknownFunction: tailwindCSS directive */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,7 +98,7 @@
   }
 
   .neon-border::before {
-    content: '';
+    content: "";
     @apply absolute -inset-[1px] rounded-lg bg-gradient-to-r from-primary via-accent to-secondary blur-sm opacity-70;
     z-index: -1;
   }
@@ -109,9 +110,21 @@
   .glowing-overlay {
     @apply fixed inset-0 opacity-10 z-0;
     background-image:
-      radial-gradient(circle at 20% 30%, hsl(var(--neon-primary)) 0%, transparent 30%),
-      radial-gradient(circle at 80% 70%, hsl(var(--neon-secondary)) 0%, transparent 30%),
-      radial-gradient(circle at 50% 50%, hsl(var(--neon-accent)) 0%, transparent 40%);
+      radial-gradient(
+        circle at 20% 30%,
+        hsl(var(--neon-primary)) 0%,
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at 80% 70%,
+        hsl(var(--neon-secondary)) 0%,
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        hsl(var(--neon-accent)) 0%,
+        transparent 40%
+      );
   }
 
   .gamer-card {
@@ -120,23 +133,25 @@
 
   .gamer-card:hover {
     @apply shadow-lg transform-gpu scale-[1.02] border-primary/50;
-    box-shadow: 0 0 15px theme('colors.primary.DEFAULT/0.4');
+    box-shadow: 0 0 15px theme("colors.primary.DEFAULT/0.4");
   }
 
   .gamer-card::before {
-    content: '';
+    content: "";
     @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-secondary opacity-70;
   }
 
   .pixel-corners {
-    clip-path: polygon(0px 8px,
-        8px 0px,
-        calc(100% - 8px) 0px,
-        100% 8px,
-        100% calc(100% - 8px),
-        calc(100% - 8px) 100%,
-        8px 100%,
-        0px calc(100% - 8px));
+    clip-path: polygon(
+      0px 8px,
+      8px 0px,
+      calc(100% - 8px) 0px,
+      100% 8px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      8px 100%,
+      0px calc(100% - 8px)
+    );
   }
 
   .tech-badge {
@@ -145,11 +160,11 @@
 
   .page-title {
     @apply text-4xl font-bold text-center mb-8 relative;
-    text-shadow: 0 0 15px theme('colors.primary.DEFAULT/0.6');
+    text-shadow: 0 0 15px theme("colors.primary.DEFAULT/0.6");
   }
 
   .page-title::after {
-    content: '';
+    content: "";
     @apply block w-24 h-1 mx-auto mt-2 bg-gradient-to-r from-primary to-accent;
   }
 }

@@ -1,5 +1,5 @@
+import type { Technology } from '@prisma/client'
 import Image from 'next/image'
-import { Technology } from '@prisma/client'
 
 export interface TecnologiasProps {
   technologies: Technology[]

@@ -1,11 +1,11 @@
 'use client'
 
+import { AnimatePresence, motion } from 'framer-motion'
+import { Code, CodeXml, Home, MailPlus, Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Menu, X, Code, CodeXml, Home, MailPlus } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -30,8 +30,16 @@ export const Header = () => {
 
   const navItems = [
     { name: 'Início', path: '/', icon: <Home className="w-4 h-4 mr-2" /> },
-    { name: 'Projetos', path: '/projects', icon: <Code className="w-4 h-4 mr-2" /> },
-    { name: 'Contato', path: '/contact', icon: <MailPlus className="w-4 h-4 mr-2" /> },
+    {
+      name: 'Projetos',
+      path: '/projects',
+      icon: <Code className="w-4 h-4 mr-2" />
+    },
+    {
+      name: 'Contato',
+      path: '/contact',
+      icon: <MailPlus className="w-4 h-4 mr-2" />
+    }
   ]
 
   return (

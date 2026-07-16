@@ -1,18 +1,18 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { ProjectCard } from '@/components/projects/project-card'
 import { prisma } from '@/lib/prisma'
 
 export const metadata: Metadata = {
   title: 'Projetos | Tiago Lopes',
-  description: 'Veja alguns dos projetos desenvolvidos por mim',
+  description: 'Veja alguns dos projetos desenvolvidos por mim'
 }
 
 export default async function ProjectsPage() {
   const projects = await prisma.project.findMany({
     include: {
-      technologies: true,
+      technologies: true
     },
-    orderBy: [{ priorityOrder: 'asc' }, { id: 'asc' }],
+    orderBy: [{ priorityOrder: 'asc' }, { id: 'asc' }]
   })
 
   return (

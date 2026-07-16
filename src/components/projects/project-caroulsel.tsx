@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react'
+import Image from 'next/image'
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 
 interface ProjectCarouselProps {
@@ -19,7 +19,9 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    )
   }
 
   return (
@@ -95,9 +97,12 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
           {images.map((img, index) => (
             <button
               key={index}
+              type="button"
               onClick={() => setCurrentIndex(index)}
               className={`relative h-16 w-24 flex-shrink-0 rounded overflow-hidden transition-all ${
-                currentIndex === index ? 'ring-2 ring-primary' : 'opacity-60 hover:opacity-100'
+                currentIndex === index
+                  ? 'ring-2 ring-primary'
+                  : 'opacity-60 hover:opacity-100'
               }`}
             >
               <Image

@@ -1,13 +1,13 @@
 'use client'
 
+import type { Technology } from '@prisma/client'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger,
+  TooltipTrigger
 } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
-import { Technology } from '@prisma/client'
 
 interface TechIconsProps {
   technologies: Technology[]
@@ -15,7 +15,11 @@ interface TechIconsProps {
   showLabels?: boolean
 }
 
-export function TechIcons({ technologies, className, showLabels = true }: TechIconsProps) {
+export function TechIcons({
+  technologies,
+  className,
+  showLabels = true
+}: TechIconsProps) {
   return (
     <div className={cn('flex flex-wrap gap-2', className)}>
       {technologies.map((tech) => (

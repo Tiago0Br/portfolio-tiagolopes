@@ -1,15 +1,15 @@
 'use client'
 
+import { motion } from 'framer-motion'
+import { Github, Linkedin, Mail, Send } from 'lucide-react'
 import Link from 'next/link'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from '@/components/ui/card'
-import { Github, Linkedin, Mail, Send } from 'lucide-react'
-import { motion } from 'framer-motion'
 
 const contactLinks = [
   {
@@ -18,7 +18,7 @@ const contactLinks = [
     href: 'https://github.com/Tiago0Br',
     username: 'Tiago0Br',
     description: 'Veja meus projetos desenvolvidos',
-    color: 'from-[#2b3137] to-[#1b1f23]',
+    color: 'from-[#2b3137] to-[#1b1f23]'
   },
   {
     name: 'LinkedIn',
@@ -26,7 +26,7 @@ const contactLinks = [
     href: 'https://linkedin.com/in/tiago-tavares-lopes/',
     username: 'Tiago Lopes',
     description: 'Se conecte comigo',
-    color: 'from-[#0077b5] to-[#0a66c2]',
+    color: 'from-[#0077b5] to-[#0a66c2]'
   },
   {
     name: 'Email',
@@ -34,7 +34,7 @@ const contactLinks = [
     href: 'mailto:tiagoltavares2002@gmail.com',
     username: 'tiagoltavares2002@gmail.com',
     description: 'Me envie um e-mail',
-    color: 'from-primary to-primary/70',
+    color: 'from-primary to-primary/70'
   },
   {
     name: 'Telegram',
@@ -42,8 +42,8 @@ const contactLinks = [
     href: 'https://t.me/tiagolopesdev',
     username: '@tiago_lopes',
     description: 'Me chame no Telegram',
-    color: 'from-[#0088cc] to-[#28a8ea]',
-  },
+    color: 'from-[#0088cc] to-[#28a8ea]'
+  }
 ]
 
 export const SocialLinks = () => {
@@ -72,11 +72,15 @@ export const SocialLinks = () => {
                   {link.icon}
                   {link.name}
                 </CardTitle>
-                <CardDescription className="font-mono">{link.username}</CardDescription>
+                <CardDescription className="font-mono">
+                  {link.username}
+                </CardDescription>
               </CardHeader>
 
               <CardContent>
-                <p className="text-sm text-muted-foreground">{link.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {link.description}
+                </p>
               </CardContent>
             </Card>
           </Link>

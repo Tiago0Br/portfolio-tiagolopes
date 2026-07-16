@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { ChevronRight, Github } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { Button } from '@/components/ui/button'
 
 export const HeroSection = () => {
   const [typedText, setTypedText] = useState('')
@@ -38,8 +38,8 @@ export const HeroSection = () => {
     visible: (custom: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: custom * 0.2, duration: 0.6 },
-    }),
+      transition: { delay: custom * 0.2, duration: 0.6 }
+    })
   }
 
   return (
@@ -53,9 +53,9 @@ export const HeroSection = () => {
             hidden: {},
             visible: {
               transition: {
-                staggerChildren: 0.2,
-              },
-            },
+                staggerChildren: 0.2
+              }
+            }
           }}
         >
           <motion.h1
@@ -86,8 +86,9 @@ export const HeroSection = () => {
             variants={fadeInUpVariants}
             custom={2}
           >
-            Formado em Ciência da Computação pela Faculdade de Americana. Atualmente
-            estou cursando a pós-graduação Tech Developer 360 da Faculdade de Tecnologia Rocketseat.
+            Formado em Ciência da Computação pela Faculdade de Americana.
+            Atualmente estou cursando a pós-graduação Tech Developer 360 da
+            Faculdade de Tecnologia Rocketseat.
           </motion.p>
 
           <motion.div

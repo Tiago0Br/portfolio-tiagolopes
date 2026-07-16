@@ -1,10 +1,10 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import type { Prisma } from '@prisma/client'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
+import { useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react'
-import { Prisma } from '@prisma/client'
 import { FeaturedProjectCard } from '../projects/featured-project-card'
 
 type Project = Prisma.ProjectGetPayload<{ include: { technologies: true } }>
@@ -13,7 +13,9 @@ interface FeaturedProjectCardProps {
   featuredProjects: Project[]
 }
 
-export function FeaturedProjects({ featuredProjects }: FeaturedProjectCardProps) {
+export function FeaturedProjects({
+  featuredProjects
+}: FeaturedProjectCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
 
@@ -22,7 +24,9 @@ export function FeaturedProjects({ featuredProjects }: FeaturedProjectCardProps)
   }
 
   const prevProject = () => {
-    setCurrentIndex((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length)
+    setCurrentIndex(
+      (prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length
+    )
   }
 
   return (
@@ -74,8 +78,11 @@ export function FeaturedProjects({ featuredProjects }: FeaturedProjectCardProps)
             {featuredProjects.map((_, index) => (
               <button
                 key={index}
+                type="button"
                 className={`w-3 h-3 rounded-full transition-all ${
-                  currentIndex === index ? 'bg-primary w-6' : 'bg-muted hover:bg-primary/50'
+                  currentIndex === index
+                    ? 'bg-primary w-6'
+                    : 'bg-muted hover:bg-primary/50'
                 }`}
                 onClick={() => setCurrentIndex(index)}
                 aria-label={`Go to project ${index + 1}`}

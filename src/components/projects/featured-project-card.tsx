@@ -1,11 +1,11 @@
-import { Prisma } from '@prisma/client'
+import type { Prisma } from '@prisma/client'
 import { motion } from 'framer-motion'
-import { Card, CardContent } from '../ui/card'
-import Image from 'next/image'
-import { TechIcons } from './tech-icons'
-import { Button } from '../ui/button'
-import Link from 'next/link'
 import { ExternalLink, Github } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Button } from '../ui/button'
+import { Card, CardContent } from '../ui/card'
+import { TechIcons } from './tech-icons'
 
 type Project = Prisma.ProjectGetPayload<{ include: { technologies: true } }>
 
@@ -42,22 +42,37 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
               <TechIcons technologies={project.technologies} className="mb-6" />
 
               <div className="flex flex-wrap gap-3">
-                <Button variant="outline" size="sm" asChild className="hidden md:flex">
-                  <Link href={project.repository} target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  asChild
+                  className="hidden md:flex"
+                >
+                  <Link
+                    href={project.repository}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Github className="mr-2 h-4 w-4" /> GitHub
                   </Link>
                 </Button>
 
                 {project.appLink && (
                   <Button size="sm" asChild className="hidden md:flex">
-                    <Link href={project.appLink} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={project.appLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ExternalLink className="mr-2 h-4 w-4" /> Link do projeto
                     </Link>
                   </Button>
                 )}
 
                 <Button variant="secondary" size="sm">
-                  <Link href={`/projects/${project.id}`}>Detalhes do projeto</Link>
+                  <Link href={`/projects/${project.id}`}>
+                    Detalhes do projeto
+                  </Link>
                 </Button>
               </div>
             </div>

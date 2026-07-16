@@ -1,6 +1,6 @@
 'use client'
 
-import { Technology } from '@prisma/client'
+import type { Technology } from '@prisma/client'
 
 interface TechCarouselProps {
   techStack: Technology[]
@@ -23,10 +23,15 @@ export const TechList = ({ techStack }: TechCarouselProps) => {
             {techStack.map((tech) => (
               <button
                 key={tech.name}
+                type="button"
                 className="relative group transition-all duration-300 hover:scale-105"
               >
                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 transition-all duration-300 flex items-center justify-center border-muted hover:border-primary/50 bg-muted/10">
-                  <img src={tech.image} alt={tech.name} className="w-6 h-6 md:w-8 md:h-8" />
+                  <img
+                    src={tech.image}
+                    alt={tech.name}
+                    className="w-6 h-6 md:w-8 md:h-8"
+                  />
                 </div>
 
                 <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-background/90 backdrop-blur-sm border border-border rounded px-2 py-1 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">

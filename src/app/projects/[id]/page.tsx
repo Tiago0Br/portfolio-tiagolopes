@@ -1,10 +1,10 @@
-import { Metadata } from 'next'
+import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Button } from '@/components/ui/button'
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
 import { ProjectCarousel } from '@/components/projects/project-caroulsel'
 import { TechIcons } from '@/components/projects/tech-icons'
+import { Button } from '@/components/ui/button'
 import { prisma } from '@/lib/prisma'
 
 interface ProjectDetailsPageProps {
@@ -12,39 +12,41 @@ interface ProjectDetailsPageProps {
 }
 
 export async function generateMetadata({
-  params,
+  params
 }: ProjectDetailsPageProps): Promise<Metadata> {
   const { id } = await params
   const project = await prisma.project.findUnique({
     where: {
-      id: Number(id),
+      id: Number(id)
     },
     include: {
-      technologies: true,
-    },
+      technologies: true
+    }
   })
 
   if (!project) {
     return {
-      title: 'Projeto não encontrado | Tiago Lopes',
+      title: 'Projeto não encontrado | Tiago Lopes'
     }
   }
 
   return {
     title: `${project.name} | Tiago Lopes`,
-    description: project.description,
+    description: project.description
   }
 }
 
-export default async function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
+export default async function ProjectDetailsPage({
+  params
+}: ProjectDetailsPageProps) {
   const { id } = await params
   const project = await prisma.project.findUnique({
     where: {
-      id: Number(id),
+      id: Number(id)
     },
     include: {
-      technologies: true,
-    },
+      technologies: true
+    }
   })
 
   if (!project) {
@@ -81,15 +83,27 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
             <h3 className="text-lg font-semibold mb-4">Links úteis</h3>
 
             <div className="flex items-center gap-3">
-              <Button variant="outline" className="w-full justify-start" asChild>
-                <Link href={project.repository} target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="outline"
+                className="w-full justify-start"
+                asChild
+              >
+                <Link
+                  href={project.repository}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Github className="mr-2 h-5 w-5" /> Repositório no GitHub
                 </Link>
               </Button>
 
               {project.appLink && (
                 <Button className="w-full justify-start" asChild>
-                  <Link href={project.appLink} target="_blank" rel="noopener noreferrer">
+                  <Link
+                    href={project.appLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <ExternalLink className="mr-2 h-5 w-5" /> Link do projeto
                   </Link>
                 </Button>
@@ -98,7 +112,9 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
           </div>
 
           <div className="gamer-card p-6">
-            <h3 className="text-lg font-semibold mb-4">Tecnologias utilizadas</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              Tecnologias utilizadas
+            </h3>
             <TechIcons
               technologies={project.technologies}
               showLabels={true}

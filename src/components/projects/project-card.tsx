@@ -1,11 +1,11 @@
 'use client'
 
+import type { Prisma } from '@prisma/client'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardContent } from '@/components/ui/card'
 import { TechIcons } from './tech-icons'
-import { motion } from 'framer-motion'
-import { Prisma } from '@prisma/client'
 
 interface ProjectCardProps {
   project: Prisma.ProjectGetPayload<{ include: { technologies: true } }>
@@ -33,10 +33,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           <CardContent className="p-6 flex flex-col flex-grow">
-            <h3 className="text-xl font-bold mb-2 group-hover:text-primary">{project.name}</h3>
+            <h3 className="text-xl font-bold mb-2 group-hover:text-primary">
+              {project.name}
+            </h3>
 
             <div className="flex-grow">
-              <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+              <p className="text-muted-foreground mb-4 line-clamp-3">
+                {project.description}
+              </p>
             </div>
 
             <TechIcons technologies={project.technologies} />
